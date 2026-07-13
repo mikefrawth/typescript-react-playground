@@ -1,52 +1,24 @@
-import { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Counter from "./pages/Counter";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  const handleIncrement = (i: number = 1) => {
-    setCount(count + i);
-  };
-
-  const handleDecrement = (i: number = 1) => {
-    setCount(count - i);
-  };
-
+export default function App() {
   return (
-    <div>
-      <h1>TypeScript Playground</h1>
-      <p>Count: {count}</p>
-      <button
-        onClick={() => {
-          const inputElement = document.querySelector<HTMLInputElement>(
-            'input[name="counter"]'
-          );
-          const value = inputElement
-            ? parseInt(inputElement.value, 10) || 1
-            : 1;
-          handleIncrement(value);
-        }}
-      >
-        Increment
-      </button>
-      <button
-        onClick={() => {
-          const inputElement = document.querySelector<HTMLInputElement>(
-            'input[name="counter"]'
-          );
-          const value = inputElement
-            ? parseInt(inputElement.value, 10) || 1
-            : 1;
-          handleDecrement(value);
-        }}
-      >
-        Increment
-      </button>
-      <div>
-        <label htmlFor="counter"></label>
-        <input type="number" name="counter"></input>
-      </div>
-    </div>
+    <>
+      <nav>
+        <Link to="/">Home</Link>
+        <Link to="/about">About</Link>
+        <Link to="/counter">Counter</Link>
+      </nav>
+
+      <hr />
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/counter" element={<Counter />} />
+      </Routes>
+    </>
   );
 }
-
-export default App;
