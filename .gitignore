@@ -1,4 +1,8 @@
 .history
+node_modules/
+dist/
+.env
+.env.local
 
 # Logs
 logs

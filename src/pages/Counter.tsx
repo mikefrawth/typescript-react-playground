@@ -2,48 +2,33 @@ import { useState } from "react";
 
 export default function Counter() {
   const [count, setCount] = useState(0);
+  const [step, setStep] = useState("1");
 
   const handleIncrement = (i: number = 1) => {
-    setCount(count + i);
+    setCount((prevCount) => prevCount + i);
   };
 
   const handleDecrement = (i: number = 1) => {
-    setCount(count - i);
+    setCount((prevCount) => prevCount - i);
   };
+
+  const parsedStep = Number(step) || 1;
 
   return (
     <div>
       <h1>TypeScript Playground</h1>
       <p>Count: {count}</p>
-      <button
-        onClick={() => {
-          const inputElement = document.querySelector<HTMLInputElement>(
-            'input[name="counter"]'
-          );
-          const value = inputElement
-            ? parseInt(inputElement.value, 10) || 1
-            : 1;
-          handleIncrement(value);
-        }}
-      >
-        Increment
-      </button>
-      <button
-        onClick={() => {
-          const inputElement = document.querySelector<HTMLInputElement>(
-            'input[name="counter"]'
-          );
-          const value = inputElement
-            ? parseInt(inputElement.value, 10) || 1
-            : 1;
-          handleDecrement(value);
-        }}
-      >
-        Increment
-      </button>
+      <button onClick={() => handleIncrement(parsedStep)}>Increment</button>
+      <button onClick={() => handleDecrement(parsedStep)}>Decrement</button>
       <div>
-        <label htmlFor="counter"></label>
-        <input type="number" name="counter"></input>
+        <label htmlFor="counter">Step</label>
+        <input
+          id="counter"
+          type="number"
+          name="counter"
+          value={step}
+          onChange={(event) => setStep(event.target.value)}
+        />
       </div>
     </div>
   );
