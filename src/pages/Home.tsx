@@ -1,3 +1,7 @@
 export default function Home() {
-  return <h1>Home</h1>;
+  return (
+    <div className="flex min-h-screen items-center justify-center">
+      <h1 className="text-4xl font-bold text-blue-600">Tailwind Works!</h1>
+    </div>
+  );
 }

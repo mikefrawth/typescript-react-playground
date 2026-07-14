@@ -1,4 +1,6 @@
 import { useState } from "react";
+// import { Button } from "../components/ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function Counter() {
   // Tracks the current numeric value displayed by the counter.
@@ -24,8 +26,8 @@ export default function Counter() {
       <h1>TypeScript Playground</h1>
       {/* Displays the current count value to the user. */}
       <p>Count: {count}</p>
-      <button onClick={() => handleIncrement(parsedStep)}>Increment</button>
-      <button onClick={() => handleDecrement(parsedStep)}>Decrement</button>
+      <Button onClick={() => handleIncrement(parsedStep)}>Increment</Button>
+      <Button onClick={() => handleDecrement(parsedStep)}>Decrement</Button>
       <div>
         <label htmlFor="counter">Step</label>
         <input
