@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Array() {
   // Stores the list of items displayed in the UI.
@@ -17,7 +19,9 @@ export default function Array() {
 
   // Removes the item at the specified index from the list.
   const handleRemoveItem = (indexToRemove: number) => {
-    setItems((prevItems) => prevItems.filter((_, index) => index !== indexToRemove));
+    setItems((prevItems) =>
+      prevItems.filter((_, index) => index !== indexToRemove)
+    );
   };
 
   return (
@@ -41,7 +45,7 @@ export default function Array() {
       </ul>
 
       {/* Input field for entering a new item and submitting it with Enter or the button. */}
-      <input
+      <Input
         type="text"
         placeholder="Enter a new item..."
         name="newItem"
@@ -54,7 +58,7 @@ export default function Array() {
           }
         }}
       />
-      <button onClick={() => handleAddItem(inputValue)}>Add Item</button>
+      <Button onClick={() => handleAddItem(inputValue)}>Add Item</Button>
     </div>
   );
 }
