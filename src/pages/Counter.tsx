@@ -1,6 +1,7 @@
 import { useState } from "react";
 // import { Button } from "../components/ui/button";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Counter() {
   // Tracks the current numeric value displayed by the counter.
@@ -30,7 +31,7 @@ export default function Counter() {
       <Button onClick={() => handleDecrement(parsedStep)}>Decrement</Button>
       <div>
         <label htmlFor="counter">Step</label>
-        <input
+        <Input
           id="counter"
           type="number"
           name="counter"
